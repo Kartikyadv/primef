@@ -11,6 +11,7 @@ const Comments = ({ post }) => {
   const [newComment, setNewComment] = useState("");
   const [parentid, setparentid] = useState(null);
   const [replyTo, setReplyTo] = useState("");
+  const [refreshReply, setRefreshReply] = useState(false);
   const inputRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Comments = ({ post }) => {
     } finally {
       setIsSubmitting(false);
       setRefreshComment(!refreshComment);
+      setRefreshReply(!refreshReply);
     }
   };
 
@@ -61,6 +63,8 @@ const Comments = ({ post }) => {
           <Comment
             key={idx}
             Post={post}
+            refreshReply={refreshReply}
+            setRefreshReply={setRefreshReply}
             refreshComment={refreshComment}
             setRefreshComment={setRefreshComment}
             comment={comment}

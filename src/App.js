@@ -5,8 +5,8 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import ProtectedRoute from './components/ProtectedRoute.js';
-import Chats from './components/Chats.js';
+import ProtectedRoute from './redux/ProtectedRoute.js';
+import Chats from './components/chats/Chats.js';
 
 const App = () => {
   return (

@@ -17,12 +17,13 @@ const Comment = ({
   handleReply,
   refreshComment,
   setRefreshComment,
+  setRefreshReply,
+  refreshReply,
 }) => {
   const [showOptions, setshowOptions] = useState(false);
   const [replies, setreplies] = useState([]);
   const [showReplies, setshowReplies] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const [refreshReply, setRefreshReply] = useState(false);
   const userid = useSelector((store) => store.user.user.userid);
   const dispatch = useDispatch();
   const { author, content, createdAt, likes, post, _id } = comment;
@@ -59,7 +60,7 @@ const Comment = ({
   };
 
   return (
-    <div className="bg-white rounded-xl mb-2">
+    <div className="bg-white rounded-xl mb-2 w-full">
       {comment.parentCommentId == null ? (
         <>
           <div className="flex items-start">
@@ -131,9 +132,9 @@ const Comment = ({
           </div>
         </>
       ) : null}
-      <div className="w-[90%] mr-[1%] mt-2 float-right">
-        {showReplies &&
-          replies?.map((comment, idx) => (
+      {showReplies &&
+        replies?.map((comment, idx) => (
+          <div className="w-[90%] mr-[1%] mt-2 ml-[10%]">
             <Replies
               key={idx}
               Post={post}
@@ -142,8 +143,8 @@ const Comment = ({
               comment={comment}
               handleReply={handleReply}
             />
-          ))}
-      </div>
+          </div>
+        ))}
     </div>
   );
 };
