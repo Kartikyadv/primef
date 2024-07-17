@@ -15,8 +15,8 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       state.token = action.payload.token;
       state.user.userid = action.payload.userid;
-      Cookies.set('jwt', action.payload.token);
-      Cookies.set('userid', action.payload.userid);
+      Cookies.set('jwt', action.payload.token, { secure: process.env.NODE_ENV === 'production', sameSite: 'None' });
+      Cookies.set('userid', action.payload.userid, { secure: process.env.NODE_ENV === 'production', sameSite: 'None' });
     },
     logout: (state) => {
       state.token = null;

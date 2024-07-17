@@ -1,6 +1,7 @@
 import home from "../images/home.png"
 import profile from "../images/profile.png"
 import chats from "../images/chats.png"
+
 export const BACKENDURL = "https://primeb.onrender.com/"
 
 export const navbaroptions = [
